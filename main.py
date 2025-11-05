@@ -24,6 +24,7 @@ try:
     from selenium.webdriver.support.ui import WebDriverWait
     from selenium.webdriver.support import expected_conditions as EC
     from selenium.webdriver.chrome.options import Options
+    from selenium.webdriver.chrome.service import Service
     SELENIUM_AVAILABLE = True
 except ImportError:
     SELENIUM_AVAILABLE = False
@@ -156,10 +157,11 @@ class ImasNewsPlugin(Star):
             chrome_options.add_argument('--disable-gpu')
             chrome_options.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36')
             # 指定chromedriver路径在./chromedriver
-            chrome_options.binary_location = './chromedriver'
+            chrome_service = Service()
+            chrome_service.path = '/usr/bin/chromedriver'
             
             # 启动浏览器
-            driver = webdriver.Chrome(options=chrome_options)
+            driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
             driver.get(IMAS_NEWS_URL)
             
             # 等待页面加载
