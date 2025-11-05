@@ -77,7 +77,7 @@ class ImasNewsPlugin(Star):
         self.scheduler.add_job(
             self._check_news_update,
             trigger="cron",
-            minute="*/1",  # 每分钟执行一次
+            minute="*/2",  # 每2分钟执行一次
             id="imas_news_check"
         )
         self.scheduler.start()
