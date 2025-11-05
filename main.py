@@ -155,6 +155,8 @@ class ImasNewsPlugin(Star):
             chrome_options.add_argument('--disable-dev-shm-usage')
             chrome_options.add_argument('--disable-gpu')
             chrome_options.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36')
+            # 指定chromedriver路径在./chromedriver
+            chrome_options.binary_location = './chromedriver'
             
             # 启动浏览器
             driver = webdriver.Chrome(options=chrome_options)
