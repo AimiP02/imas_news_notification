@@ -1,0 +1,4 @@
+APScheduler
+beautifulsoup4
+httpx
+selenium
